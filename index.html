@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Cito Longe Tarde">
+<meta property="og:description" content="Spectacle immersif et déambulatoire de La Cave à Théâtre. 16, 17 et 18 octobre 2026 au Tapis Rouge, Colombes.">
+<style>[hidden]{display:none!important}img{max-width:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Cito Longe Tarde</title>
+<meta name="description" content="Cito Longe Tarde — spectacle immersif et déambulatoire de La Cave à Théâtre. 16, 17 et 18 octobre 2026 au Tapis Rouge, Colombes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Oxanium:wght@400;600&family=Share+Tech+Mono&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --void:#060918;
+  --navy:#0a1233;
+  --blueprint:#0c2a66;
+  --star:#eef1ff;
+  --muted:#a6b0d6;
+  --peri:#b3c1f5;
+  --gold:#d9a93c;
+  --gold-deep:#8a6414;
+  --hud:#5fd3f0;
+  --hud-dim:rgba(95,211,240,.28);
+  --line:rgba(179,193,245,.18);
+  --f-body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-disp:"Oxanium","Share Tech Mono",ui-monospace,monospace;
+  --f-mono:"Share Tech Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--star);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--hud);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-block:18px;font:600 13px/1.2 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--peri)}
+.topbar a{color:var(--muted);text-decoration:none;font-weight:500;text-transform:none;letter-spacing:0}
+.topbar a:hover{color:var(--star)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--void) url("img/stars.jpg") center 30%/cover no-repeat;isolation:isolate;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,9,24,.35) 0%,rgba(6,9,24,.15) 40%,rgba(6,9,24,.85) 88%,var(--void) 100%)}
+.twinkle{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.twinkle i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px rgba(255,255,255,.8),0 0 18px 4px rgba(179,193,245,.45);animation:tw 3.6s ease-in-out infinite}
+.twinkle i::before,.twinkle i::after{content:"";position:absolute;left:50%;top:50%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);transform:translate(-50%,-50%)}
+.twinkle i::before{width:26px;height:1px}
+.twinkle i::after{width:1px;height:26px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.9),transparent)}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+
+.hero-inner{display:grid;justify-items:center;text-align:center;padding-block:28px 72px;gap:0}
+.credit{font:400 clamp(15px,2vw,19px)/1.3 var(--f-disp);letter-spacing:.04em;margin:0}
+.credit small{display:block;font:400 12px/1.5 var(--f-mono);letter-spacing:.12em;color:var(--muted);margin-top:6px}
+.logotype{display:grid;gap:clamp(18px,3.4vw,36px);justify-items:center;margin-block:clamp(36px,6vw,64px)}
+.logotype img{height:auto;filter:drop-shadow(0 0 18px rgba(179,193,245,.35))}
+.logotype .w1{width:clamp(150px,30vw,300px)}
+.logotype .w2{width:clamp(195px,39vw,390px)}
+.logotype .w3{width:clamp(194px,38.8vw,388px)}
+.tagline{margin:0;font:400 13px/1.5 var(--f-mono);letter-spacing:.24em;text-transform:uppercase;color:var(--peri)}
+
+/* countdown HUD */
+.hud{margin-top:40px;width:min(100%,640px);border:1px solid var(--hud-dim);border-radius:10px;background:rgba(6,14,40,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:18px clamp(14px,3vw,26px) 20px;position:relative}
+.hud::before,.hud::after{content:"";position:absolute;width:14px;height:14px;border:2px solid var(--hud)}
+.hud::before{top:-2px;left:-2px;border-right:0;border-bottom:0;border-top-left-radius:10px}
+.hud::after{bottom:-2px;right:-2px;border-left:0;border-top:0;border-bottom-right-radius:10px}
+.hud-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:400 12px/1.4 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud)}
+.hud-head .status::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--hud);margin-right:8px;vertical-align:1px;animation:blink 1.4s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+.hud-title{margin:14px 0 6px;font:600 clamp(18px,2.6vw,22px)/1.2 var(--f-disp);letter-spacing:.06em;text-transform:uppercase}
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(6px,1.6vw,14px);margin-top:14px}
+.unit{display:grid;gap:4px;justify-items:center;padding-block:10px;border-top:1px solid var(--line)}
+.unit b{font:400 clamp(34px,8vw,60px)/1 var(--f-mono);font-variant-numeric:tabular-nums;color:var(--star);text-shadow:0 0 16px rgba(95,211,240,.45)}
+.unit span{font:400 11px/1 var(--f-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.hud-foot{margin:12px 0 0;font:400 12px/1.5 var(--f-mono);letter-spacing:.08em;color:var(--muted)}
+
+/* ---------- dates / boarding ---------- */
+.boarding{padding-block:8px 80px}
+.boarding h2{text-align:center}
+.lead-c{text-align:center;color:var(--muted);margin:10px auto 34px;max-width:52ch}
+.passes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pass{--notch:14px;position:relative;display:grid;grid-template-rows:auto 1fr auto;width:100%;padding:0;font:inherit;text-align:left;cursor:pointer;color:var(--star);background:linear-gradient(160deg,#122056 0%,#0b1640 60%,#0a1233 100%);border:1px solid rgba(179,193,245,.28);border-radius:14px;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.pass:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 18px 40px -18px rgba(217,169,60,.55)}
+.pass-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font:400 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--peri);border-bottom:1px dashed rgba(179,193,245,.3)}
+.pass-body{padding:22px 18px 18px;display:grid;gap:2px}
+.day{font:600 clamp(24px,2.8vw,30px)/1.1 var(--f-disp);letter-spacing:.02em;color:var(--peri);text-transform:uppercase}
+.date{font:700 clamp(64px,8vw,92px)/.95 var(--f-body);letter-spacing:-.03em}
+.month{font:500 19px/1.3 var(--f-body);color:var(--star)}
+.time{margin-top:14px;display:flex;align-items:baseline;gap:10px;font:400 15px/1 var(--f-mono);color:var(--muted);letter-spacing:.06em}
+.time strong{font:400 30px/1 var(--f-mono);color:var(--star);letter-spacing:.02em}
+.pass-cta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 18px;background:var(--gold);color:#1b1304;font:700 16px/1 var(--f-body);letter-spacing:.02em}
+.pass-cta .arrow{font:400 20px/1 var(--f-mono);transition:transform .25s ease}
+.pass:hover .arrow{transform:translateX(4px)}
+.pass::before,.pass::after{content:"";position:absolute;top:40px;width:calc(var(--notch)*2);height:calc(var(--notch)*2);border-radius:50%;background:var(--void);transform:translateY(-50%)}
+.pass::before{left:calc(var(--notch)*-1)}
+.pass::after{right:calc(var(--notch)*-1)}
+.pass:disabled{pointer-events:none;opacity:.45}
+.pass:disabled .pass-cta{background:#3a4263;color:var(--muted)}
+.board-note{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 22px;margin-top:26px;font:400 14px/1.5 var(--f-mono);color:var(--muted);letter-spacing:.04em;text-align:center}
+.ha-link{color:inherit;text-decoration:none}
+.ha-link:hover{color:var(--gold)}
+.board-note strong{color:var(--star);font-weight:400}
+
+/* ---------- pill headings (from the dossier) ---------- */
+.pill{display:inline-block;margin:0;padding:.28em 1.1em .34em;border-radius:999px;background:#0b1233 url("img/stars.jpg") center/420px auto;font:400 clamp(26px,3.6vw,38px)/1.15 var(--f-disp);letter-spacing:.02em;color:var(--star);text-wrap:balance}
+.eyebrow{font:400 12px/1.4 var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--hud);margin:0 0 14px}
+
+/* ---------- mission brief ---------- */
+.brief{background:#fbfbfd;color:#15183a}
+.brief-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.brief-art{background:var(--blueprint) url("img/blueprint-v.jpg") left top/cover no-repeat;min-height:420px;position:relative}
+.brief-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,42,102,0) 55%,rgba(12,42,102,.55))}
+.brief-text{padding:clamp(40px,6vw,80px) var(--gutter);display:grid;justify-items:end;text-align:right;gap:26px}
+.brief-text .badge{width:clamp(130px,16vw,180px);height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
+.poem{margin:0;font:400 clamp(17px,1.9vw,20px)/1.7 var(--f-body);letter-spacing:.09em;max-width:34ch}
+.poem p{margin:0 0 1.2em}
+.poem .short{display:block}
+.term{margin:0;font:400 12px/1.5 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#0c2a66}
+.rest{color:transparent}
+.caret{display:inline-block;width:.55em;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#0c2a66;animation:blink 1s steps(2,start) infinite}
+.poem.typing{cursor:pointer}
+.sign{font:500 18px/1 var(--f-body);letter-spacing:.2em;margin:0}
+
+/* ---------- mission file ---------- */
+.file{padding-block:90px}
+.file-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start;margin-top:36px}
+.specs{margin:0;display:grid;border:1px solid var(--hud-dim);border-radius:10px;background:rgba(10,18,51,.7)}
+.specs div{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.specs div:last-child{border-bottom:0}
+.specs dt{font:400 12px/1.6 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud)}
+.specs dd{margin:0;font-weight:500}
+.specs dd small{display:block;color:var(--muted);font-weight:400;font-size:15px}
+.prose p{margin:0 0 1em;max-width:62ch;color:#d4daf3}
+.prose strong{color:var(--star)}
+
+
+/* ---------- gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
+.gallery figure{min-width:0;margin:0;aspect-ratio:4/5;position:relative;border-radius:8px;overflow:hidden;background:#000}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.onboard{padding-block:0 90px}
+
+/* ---------- crew ---------- */
+.crew{position:relative;padding-block:90px;background:var(--void) url("img/stars.jpg") center/cover no-repeat;isolation:isolate}
+.crew::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(6,9,24,.55)}
+.sky-map{position:relative;height:640px;margin-top:36px}
+.sky-map svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.sky-map line{stroke:rgba(179,193,245,.55);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .35s linear}
+.constellation{position:absolute;inset:0;list-style:none;margin:0;padding:0}
+.constellation li{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);display:flex;align-items:center;gap:12px;transform:translate(-3px,-50%);font:400 15px/1.3 var(--f-mono);letter-spacing:.03em;white-space:nowrap}
+.constellation li.flip{flex-direction:row-reverse;transform:translate(calc(-100% + 3px),-50%);text-align:right}
+.constellation li.up{flex-direction:column-reverse;gap:6px;transform:translate(-50%,calc(-100% + 3px));text-align:center}
+.constellation li.dn{flex-direction:column;gap:6px;transform:translate(-50%,-3px);text-align:center}
+.st{flex:none;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px rgba(255,255,255,.8),0 0 16px 5px rgba(179,193,245,.45);animation:tw 4s ease-in-out infinite;animation-delay:calc(var(--y)*-.07s)}
+.nm .ln{color:var(--peri)}
+.direction{margin-top:30px;font:400 15px/1.5 var(--f-mono);color:var(--peri);letter-spacing:.05em}
+.direction strong{color:var(--star);font-weight:400}
+
+/* ---------- final call ---------- */
+.final{padding-block:90px 50px;text-align:center}
+.final .badge{width:120px;height:auto;margin:0 auto 22px}
+.final h2{margin:0}
+.mini-dates{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+.mini-dates button{cursor:pointer;background:none;color:var(--star);display:inline-flex;gap:10px;align-items:baseline;padding:14px 20px;border:1px solid var(--gold);border-radius:999px;text-decoration:none;font:600 16px/1 var(--f-body);transition:background .2s,color .2s}
+.mini-dates button span{font:400 14px/1 var(--f-mono);color:var(--gold)}
+.mini-dates button:hover{background:var(--gold);color:#1b1304}
+.mini-dates button:hover span{color:#1b1304}
+.mini-dates button:disabled{cursor:default;opacity:.4;border-color:var(--line)}
+footer{border-top:1px solid var(--line);margin-top:70px;padding-block:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;font-size:14px;color:var(--muted)}
+footer a{color:var(--peri)}
+
+
+/* ---------- access ---------- */
+.access{padding-block:90px}
+.access-top{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px 40px;margin-top:30px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.addr{margin:0;font:600 clamp(24px,3vw,32px)/1.2 var(--f-disp)}
+.addr-sub{margin:6px 0 0;color:var(--muted)}
+.route-links{display:flex;flex-wrap:wrap;gap:10px}
+.route-links a{display:inline-flex;gap:10px;align-items:center;padding:12px 18px;border:1px solid var(--hud-dim);border-radius:999px;text-decoration:none;font:500 15px/1 var(--f-body);color:var(--star);transition:border-color .2s,background .2s}
+.route-links a span{font-family:var(--f-mono);color:var(--hud)}
+.route-links a:hover{border-color:var(--hud);background:rgba(95,211,240,.08)}
+.ways{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px}
+.way{padding-block:26px;border-bottom:1px solid var(--line)}
+.way-tag{margin:0 0 8px;font:400 12px/1.4 var(--f-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)}
+.way h3{margin:0 0 8px;font:600 20px/1.3 var(--f-body)}
+.way p:last-child{margin:0;color:#d4daf3;max-width:52ch}
+.way strong{color:var(--star)}
+@media (max-width:760px){.ways{grid-template-columns:1fr}}
+
+
+
+
+/* ---------- hidden signals ---------- */
+.has-sig{position:relative}
+.signal{position:absolute;z-index:5;width:28px;height:28px;margin:-14px 0 0 -14px;padding:0;border:0;border-radius:50%;background:transparent;cursor:crosshair;display:grid;place-items:center}
+.signal::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--hud);box-shadow:0 0 8px 2px rgba(95,211,240,.8)}
+.signal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(95,211,240,.7);animation:ping 2.6s ease-out infinite}
+@keyframes ping{from{transform:scale(.4);opacity:1}to{transform:scale(2.2);opacity:0}}
+.signal.found{cursor:default}
+.signal.found::before{background:var(--gold);box-shadow:0 0 8px 2px rgba(217,169,60,.8)}
+.signal.found::after{display:none}
+.sig-hint{margin:10px 0 0;font:400 12px/1.5 var(--f-mono);letter-spacing:.08em;color:var(--hud)}
+.sig-toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:9;width:min(calc(100% - 32px),440px);transform:translateX(-50%);padding:16px 18px;border:1px solid var(--hud);border-radius:10px;background:rgba(6,14,40,.95);box-shadow:0 20px 40px -16px rgba(0,0,0,.8)}
+.sig-toast p{margin:0}
+.sig-tag{font:400 12px/1.4 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--hud)}
+.sig-txt{margin-top:6px!important;font:500 18px/1.4 var(--f-body);color:var(--star)}
+.sig-toast a[hidden],.sig-toast[hidden]{display:none!important}
+.sig-toast a{display:inline-block;margin-top:10px;color:var(--gold);font-weight:700}
+
+/* ---------- launch ticket ---------- */
+.tk-img{display:block;width:auto;height:auto;max-width:100%;max-height:33vh;border-radius:12px;box-shadow:0 26px 50px -26px rgba(0,0,0,.9);animation:tkin .6s ease-out}
+.tk-img:not([src]){visibility:hidden}
+@keyframes tkin{from{transform:translateY(20px) rotate(-1.5deg);opacity:0}to{transform:none;opacity:1}}
+
+/* ---------- sky canvas, rocket, launch ---------- */
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero{z-index:1}
+main{position:relative;z-index:3}
+.rocket{position:fixed;left:50%;bottom:-5.5em;z-index:1;font-size:clamp(36px,5vw,56px);width:1em;margin-left:-.5em;pointer-events:none;transform:translateY(0);transition:transform .9s cubic-bezier(.2,.8,.3,1)}
+.rocket svg{display:block;width:1em;height:2.333em;filter:drop-shadow(0 0 10px rgba(179,193,245,.35))}
+.flame{width:.36em;height:.95em;margin:-.08em auto 0;transform-origin:50% 0;transform:scaleY(var(--thrust,.7));border-radius:50% 50% 50% 50%/20% 20% 80% 80%;background:radial-gradient(ellipse at 50% 18%,#fff 0 18%,#ffe39a 30%,#f2a23a 52%,rgba(226,90,40,.55) 70%,transparent 76%);filter:blur(.5px);animation:flick .09s steps(2) infinite alternate}
+.trail{width:.52em;height:4em;margin:-.3em auto 0;transform-origin:50% 0;transform:scaleY(var(--trail,0));background:linear-gradient(180deg,rgba(214,224,255,.45),rgba(179,193,245,.12) 45%,transparent);border-radius:50%;filter:blur(5px)}
+@keyframes flick{from{opacity:.85}to{opacity:1}}
+html.launching #sky{z-index:11}
+.launch.armed .rocket{transform:translateY(-2.3em)}
+.launch.shake .rocket svg{animation:shake .08s linear infinite}
+@keyframes shake{0%{transform:translate(1px,0)}50%{transform:translate(-1px,1px)}100%{transform:translate(1px,-1px)}}
+.launch.fly .rocket{transform:translateY(-130vh);transition:transform 1.8s cubic-bezier(.55,0,.8,.4)}
+.launch-box{position:relative;z-index:2}
+
+.launch{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;padding-inline:var(--gutter);background:rgba(4,6,18,.92);text-align:center;overflow-y:auto;overscroll-behavior:contain}
+.launch[hidden],.launch-go[hidden]{display:none}
+.launch-box{display:grid;justify-items:center;gap:18px;width:100%;max-width:760px;margin:auto;padding-block:28px 40px}
+.launch-row{display:grid;justify-items:center;gap:4px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.launch-flight{margin:0;font:400 12px/1.5 var(--f-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)}
+.launch-count{font:400 clamp(64px,14vw,110px)/1 var(--f-mono);font-variant-numeric:tabular-nums;color:var(--star);text-shadow:0 0 30px rgba(95,211,240,.6)}
+.launch-count.pop{animation:pop .6s ease-out}
+@keyframes pop{from{transform:scale(1.35);opacity:.2}to{transform:scale(1);opacity:1}}
+.launch-count.go{font:600 clamp(34px,7vw,56px)/1.1 var(--f-disp);letter-spacing:.04em;color:var(--gold);text-shadow:0 0 30px rgba(217,169,60,.55);text-transform:uppercase}
+.launch-msg{margin:0;color:#d4daf3;font-size:17px}
+.launch-go{display:inline-flex;gap:12px;align-items:center;margin-top:8px;padding:16px 26px;border-radius:999px;background:var(--gold);color:#1b1304;text-decoration:none;font:700 17px/1 var(--f-body);transition:transform .2s,box-shadow .2s}
+.launch-go.ready{animation:glow 1.4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 8px rgba(217,169,60,.18),0 0 34px rgba(217,169,60,.45)}}
+.launch-cancel{background:none;border:0;color:var(--muted);font:400 13px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;padding:10px;cursor:pointer}
+.launch-cancel:hover{color:var(--star)}
+@media (prefers-reduced-motion:reduce){.rocket{display:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .passes{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+  .pass-body{grid-template-columns:auto 1fr;column-gap:18px;align-items:end}
+  .pass-body .date{grid-row:span 3;grid-column:1}
+  .pass-body .day,.pass-body .month,.pass-body .time{grid-column:2}
+  .pass-body .time{margin-top:6px}
+  .sky-map{height:900px}
+  .constellation li{left:calc(var(--mx)*1%);top:calc(var(--my)*1%);font-size:14px}
+  .constellation li.flip,.constellation li.up,.constellation li.dn{flex-direction:row;gap:12px;transform:translate(-3px,-50%);text-align:left}
+  .constellation li.mflip{flex-direction:row-reverse;gap:12px;transform:translate(calc(-100% + 3px),-50%);text-align:right}
+  .constellation li.mup{flex-direction:column-reverse;gap:6px;transform:translate(-50%,calc(-100% + 3px));text-align:center}
+  .constellation li.mdn{flex-direction:column;gap:6px;transform:translate(-50%,-3px);text-align:center}
+  .nm .ln{display:block}
+  .brief-grid{grid-template-columns:1fr}
+  .brief-art{min-height:260px;background:var(--blueprint) url("img/blueprint-v.jpg") center 18%/140% auto no-repeat}
+  .file-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  }
+@media (max-width:480px){
+  body{font-size:16px}
+  .specs div{grid-template-columns:1fr;gap:4px}
+  .unit span{font-size:9px;letter-spacing:.12em}
+  .brief-text{justify-items:center;text-align:center}
+  .poem{letter-spacing:.05em}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<header class="hero has-sig" id="top">
+  <button class="signal" type="button" data-sig="0" style="left:88%;top:34%" aria-label="Signal inconnu"></button>
+  <div class="twinkle" aria-hidden="true">
+    <i style="left:12%;top:24%;animation-delay:.2s"></i>
+    <i style="left:84%;top:18%;animation-delay:1.3s"></i>
+    <i style="left:22%;top:52%;animation-delay:2.1s"></i>
+    <i style="left:78%;top:46%;animation-delay:.7s"></i>
+    <i style="left:9%;top:74%;animation-delay:1.8s"></i>
+    <i style="left:90%;top:70%;animation-delay:2.6s"></i>
+    <i style="left:64%;top:30%;animation-delay:3.1s"></i>
+    <i style="left:34%;top:12%;animation-delay:1.1s"></i>
+  </div>
+  <div class="wrap">
+    <div class="topbar">
+      <span>La Cave à Théâtre présente</span>
+      <a href="https://www.annibal-lacave.com" target="_blank" rel="noopener">www.annibal-lacave.com</a>
+    </div>
+    <div class="hero-inner">
+      <p class="credit">Par l’Atelier Création<small>Mise en scène · Arthur Deslandes-Vernay</small></p>
+      <h1 class="logotype" aria-label="Cito Longe Tarde">
+        <img class="w1" src="img/w-cito.png" alt="" width="470" height="156">
+        <img class="w2" src="img/w-longe.png" alt="" width="610" height="156">
+        <img class="w3" src="img/w-tarde.png" alt="" width="606" height="156">
+      </h1>
+      <p class="tagline">Partir · Vite · Loin<br>Sans se retourner</p>
+
+      <section class="hud" aria-live="polite" aria-labelledby="hud-title">
+        <div class="hud-head">
+          <span>Mission Proxima B Centauri</span>
+          <span class="status" id="hud-status">Compte à rebours</span>
+        </div>
+        <p class="hud-title" id="hud-title">Décollage dans</p>
+        <div class="clock" id="clock">
+          <div class="unit"><b id="cd-d">--</b><span>Jours</span></div>
+          <div class="unit"><b id="cd-h">--</b><span>Heures</span></div>
+          <div class="unit"><b id="cd-m">--</b><span>Minutes</span></div>
+          <div class="unit"><b id="cd-s">--</b><span>Secondes</span></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="boarding" id="reserver" aria-labelledby="board-title">
+    <div class="wrap">
+      <h2 class="pill" id="board-title" style="display:table;margin-inline:auto">Choisissez votre départ</h2>
+      <p class="lead-c">Trois départs, quatre-vingts à cent passagers par vol. Cliquez sur une date pour réserver votre place sur HelloAsso.</p>
+      <div class="passes">
+        <button class="pass" type="button" data-start="2026-10-16T20:15:00+02:00" data-url="https://www.helloasso.com/associations/la-cave-a-theatre/evenements/cito-longe-tarde" data-vol="01" data-day="Vendredi" data-date="16" data-time="20h15" aria-label="Réserver le vol 01, vendredi 16 octobre 2026 à 20h15">
+          <span class="pass-top"><span>Vol 01</span><span class="flag">Embarquement</span></span>
+          <span class="pass-body">
+            <span class="day">Vendredi</span>
+            <span class="date">16</span>
+            <span class="month">octobre 2026</span>
+            <span class="time"><strong>20h15</strong>décollage</span>
+          </span>
+          <span class="pass-cta"><span>Réserver ce départ</span><span class="arrow" aria-hidden="true">→</span></span>
+        </button>
+        <button class="pass" type="button" data-start="2026-10-17T20:15:00+02:00" data-url="https://www.helloasso.com/associations/la-cave-a-theatre/evenements/cito-longe-tarde-17-10-2026" data-vol="02" data-day="Samedi" data-date="17" data-time="20h15" aria-label="Réserver le vol 02, samedi 17 octobre 2026 à 20h15">
+          <span class="pass-top"><span>Vol 02</span><span class="flag">Embarquement</span></span>
+          <span class="pass-body">
+            <span class="day">Samedi</span>
+            <span class="date">17</span>
+            <span class="month">octobre 2026</span>
+            <span class="time"><strong>20h15</strong>décollage</span>
+          </span>
+          <span class="pass-cta"><span>Réserver ce départ</span><span class="arrow" aria-hidden="true">→</span></span>
+        </button>
+        <button class="pass" type="button" data-start="2026-10-18T16:45:00+02:00" data-url="https://www.helloasso.com/associations/la-cave-a-theatre/evenements/cito-longe-tarde-18-10-2026" data-vol="03" data-day="Dimanche" data-date="18" data-time="16h45" aria-label="Réserver le vol 03, dimanche 18 octobre 2026 à 16h45">
+          <span class="pass-top"><span>Vol 03</span><span class="flag">Embarquement</span></span>
+          <span class="pass-body">
+            <span class="day">Dimanche</span>
+            <span class="date">18</span>
+            <span class="month">octobre 2026</span>
+            <span class="time"><strong>16h45</strong>décollage</span>
+          </span>
+          <span class="pass-cta"><span>Réserver ce départ</span><span class="arrow" aria-hidden="true">→</span></span>
+        </button>
+      </div>
+      <div class="board-note">
+        <span>Tarif <strong>6 €</strong></span>
+        <span>À partir de <strong>14 ans</strong></span>
+        <span>Durée <strong>2h15</strong></span>
+        <span>Réservation obligatoire sur <a class="ha-link" href="https://www.helloasso.com/associations/la-cave-a-theatre" target="_blank" rel="noopener"><strong>HelloAsso</strong></a></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="brief" aria-label="La mission">
+    <div class="brief-grid">
+      <div class="brief-art" role="img" aria-label="Plan technique du vaisseau"><button class="signal" type="button" data-sig="1" style="left:62%;top:58%" aria-label="Signal inconnu"></button></div>
+      <div class="brief-text">
+        <img class="badge" src="img/badge.png" alt="Écusson de la mission Proxima B Centauri" width="420" height="420">
+        <p class="term" aria-hidden="true">&gt; Transmission entrante · Mission Proxima B Centauri</p>
+        <div class="poem">
+          <p>Et si nous avions rendu notre berceau hostile au point de compromettre l’avenir de l’humanité ? Pourrait-il se trouver dans un autre temps, un autre lieu ?</p>
+          <p><span class="short">Partir.</span><span class="short">Vite, avant qu’il ne soit trop tard.</span><span class="short">Loin.</span>Sans se retourner, au-delà de ce que l’humanité n’a jamais osé imaginer.</p>
+          <p>Face à l’effondrement imminent, une mission est lancée. Un vaisseau est prêt à partir. À son bord, la promesse d’une utopie, l’espoir d’un recommencement. Mais même à la vitesse de la lumière, notre ombre nous suit…</p>
+        </div>
+        <p class="sign">– Paré au décollage –</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="file has-sig" aria-labelledby="file-title">
+    <button class="signal" type="button" data-sig="2" style="left:93%;top:12%" aria-label="Signal inconnu"></button>
+    <div class="wrap">
+      <p class="eyebrow">Dossier de vol</p>
+      <h2 class="pill" id="file-title">Le spectacle</h2>
+      <div class="file-grid">
+        <div class="prose">
+          <p><strong>Cito Longe Tarde</strong> est une œuvre théâtrale de science-fiction qui se découvre en <strong>immersion</strong> et en <strong>déambulation</strong>. Les spectateurs, devenus passagers, se déplacent au cœur d’un immense vaisseau spatial aux multiples modules.</p>
+          <p>Ici, personne ne regarde le même voyage. Chaque passager vit sa propre traversée, et aucune représentation ne ressemble tout à fait à une autre.</p>
+          <p>Pas de coulisse, pas d’entracte. Le reste, vous le découvrirez à bord.</p>
+        </div>
+        <dl class="specs">
+          <div><dt>Format</dt><dd>Immersif et déambulatoire</dd></div>
+          <div><dt>Public</dt><dd>À partir de 14 ans</dd></div>
+          <div><dt>Durée</dt><dd>2h15</dd></div>
+          <div><dt>Tarif</dt><dd>6 €<small>réservation sur <a class="ha-link" href="https://www.helloasso.com/associations/la-cave-a-theatre" target="_blank" rel="noopener">HelloAsso</a></small></dd></div>
+          <div><dt>Port d’attache</dt><dd>Le Tapis Rouge<small>9 rue de la Liberté, 92700 Colombes</small></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="onboard" aria-label="Journal de bord">
+    <div class="wrap">
+      <p class="eyebrow">Journal de bord</p>
+      <div class="gallery">
+        <figure><img src="img/lou.jpg" alt="Portrait vidéo d'un passager, interface de bord en surimpression"></figure>
+        <figure><img src="img/portrait.jpg" style="object-position:14% 30%" alt="Un comédien en combinaison de mission dans l'obscurité"></figure>
+        <figure><img src="img/lumiere.jpg" alt="Une comédienne éclairée par une lampe dans la fumée"></figure>
+        <figure><img src="img/video.jpg" alt="Tournage d'une séquence vidéo sous lumière bleue"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="crew" aria-labelledby="crew-title">
+    <div class="wrap">
+      <p class="eyebrow">Manifeste d’équipage</p>
+      <h2 class="pill" id="crew-title">L’équipage</h2>
+      <div class="sky-map has-sig" id="skymap">
+        <svg aria-hidden="true"></svg>
+        <ul class="constellation" data-edges="2-16 9-16 16-3 3-13 13-7 7-11 7-4 4-5 7-8 8-14 3-6 6-10 10-15 15-12 12-0 0-1" data-medges="1-8 8-6 8-16 2-16 16-14 14-6 16-10 9-10 10-7 7-12 10-11 11-12 11-0 15-3 15-0 0-4 3-4 4-5 5-13">
+        <li style="--x:78.6;--y:64.1;--mx:6;--my:72"><i class="st"></i><span class="nm">Alexandre <span class="ln">Ghozzi</span></span></li>
+        <li class="flip" style="--x:80.9;--y:90.0;--mx:8;--my:3"><i class="st"></i><span class="nm">Amaia <span class="ln">Soubelet</span></span></li>
+        <li style="--x:11.7;--y:83.4;--mx:6;--my:17"><i class="st"></i><span class="nm">Anatole</span></li>
+        <li class="flip" style="--x:28.2;--y:42.3;--mx:56;--my:74"><i class="st"></i><span class="nm">Barbara <span class="ln">Bugno</span></span></li>
+        <li style="--x:24.1;--y:9.2;--mx:26;--my:83"><i class="st"></i><span class="nm">Bruno <span class="ln">Hédou</span></span></li>
+        <li class="flip" style="--x:19.2;--y:13.8;--mx:58;--my:90"><i class="st"></i><span class="nm">Chantal <span class="ln">Colas</span></span></li>
+        <li class="dn" style="--x:42.5;--y:52.2;--mx:62;--my:4"><i class="st"></i><span class="nm">Christelle <span class="ln">Duflot</span></span></li>
+        <li style="--x:30.5;--y:25.3;--mx:58;--my:32"><i class="st"></i><span class="nm">Cécile <span class="ln">Roche</span></span></li>
+        <li class="up" style="--x:13.3;--y:26.7;--mx:32;--my:9"><i class="st"></i><span class="nm">Daliane <span class="ln">Piriou</span></span></li>
+        <li style="--x:25.3;--y:82.0;--mx:10;--my:36"><i class="st"></i><span class="nm">Dee <span class="ln">Amorim</span></span></li>
+        <li class="up" style="--x:56.3;--y:47.4;--mx:32;--my:44"><i class="st"></i><span class="nm">Delphine <span class="ln">Retout</span></span></li>
+        <li style="--x:41.6;--y:10.2;--mx:8;--my:55"><i class="st"></i><span class="nm">Gaspard <span class="ln">Laroche-Joubert</span></span></li>
+        <li class="flip" style="--x:69.1;--y:60.7;--mx:62;--my:49"><i class="st"></i><span class="nm">Hugo <span class="ln">Lesné</span></span></li>
+        <li style="--x:27.3;--y:34.7;--mx:10;--my:95"><i class="st"></i><span class="nm">Lauréline <span class="ln">Vareille</span></span></li>
+        <li class="dn" style="--x:7.2;--y:32.5;--mx:64;--my:15"><i class="st"></i><span class="nm">Marion <span class="ln">Paineau</span></span></li>
+        <li style="--x:68.7;--y:52.7;--mx:40;--my:63"><i class="st"></i><span class="nm">Michèle <span class="ln">Malaisé</span></span></li>
+        <li style="--x:34.3;--y:61.0;--mx:36;--my:21"><i class="st"></i><span class="nm">Samir <span class="ln">Belgacemi</span></span></li>
+        </ul>
+        <button class="signal" type="button" data-sig="4" style="left:47%;top:22%" aria-label="Signal inconnu"></button>
+      </div>
+      <p class="direction">Mise en scène <strong>Arthur Deslandes-Vernay</strong> · Atelier Création de La Cave à Théâtre</p>
+    </div>
+  </section>
+
+  <section class="access has-sig" id="acces" aria-labelledby="access-title">
+    <button class="signal" type="button" data-sig="3" style="left:6%;top:9%" aria-label="Signal inconnu"></button>
+    <div class="wrap">
+      <p class="eyebrow">Coordonnées d’embarquement</p>
+      <h2 class="pill" id="access-title">Rejoindre le vaisseau</h2>
+      <div class="access-top">
+        <div>
+          <p class="addr">Le Tapis Rouge</p>
+          <p class="addr-sub">9 rue de la Liberté, 92700 Colombes<br>à côté de l’Hôtel de Ville</p>
+        </div>
+        <div class="route-links">
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=48.9230032,2.2540336" target="_blank" rel="noopener">Itinéraire Google Maps <span>→</span></a>
+          <a href="https://maps.apple.com/?daddr=48.9230032,2.2540336" target="_blank" rel="noopener">Itinéraire Plans (Apple) <span>→</span></a>
+        </div>
+      </div>
+      <div class="ways">
+        <article class="way">
+          <p class="way-tag">Train</p>
+          <h3>Transilien ligne J</h3>
+          <p>Depuis Paris Saint-Lazare, descendez à la gare de <strong>Colombes</strong>, environ 10 minutes de trajet. Le Tapis Rouge est ensuite à 400 m à pied, soit 5 minutes.</p>
+        </article>
+        <article class="way">
+          <p class="way-tag">Bus</p>
+          <h3>Arrêt Mairie de Colombes</h3>
+          <p>À 30 m de la salle. Lignes <strong>164, 167, 304, 366</strong> et <strong>378</strong>. Arrêts Général Leclerc et Gare de Colombes également tout proches.</p>
+        </article>
+        <article class="way">
+          <p class="way-tag">Voiture</p>
+          <h3>Depuis Paris</h3>
+          <p>Depuis la porte de Champerret, prenez le boulevard Bineau puis le pont de Courbevoie, et continuez vers le centre de Colombes en traversant La Garenne-Colombes. Comptez 20 à 40 minutes selon la circulation.</p>
+        </article>
+        <article class="way">
+          <p class="way-tag">Stationnement</p>
+          <h3>Parking Hôtel de Ville</h3>
+          <p>Parking Q-Park à deux pas de la salle : 273 places, ouvert 24h/24, payant (espèces et carte). Hauteur maximale 1,90 m.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-title">
+    <div class="wrap">
+      <img class="badge" src="img/badge.png" alt="" width="420" height="420">
+      <h2 class="pill" id="final-title">Paré au décollage ?</h2>
+      <div class="mini-dates">
+        <button type="button" data-vol="01" data-day="Vendredi" data-date="16" data-time="20h15" data-start="2026-10-16T20:15:00+02:00" data-url="https://www.helloasso.com/associations/la-cave-a-theatre/evenements/cito-longe-tarde">Ven. 16 oct.<span>20h15</span></button>
+        <button type="button" data-vol="02" data-day="Samedi" data-date="17" data-time="20h15" data-start="2026-10-17T20:15:00+02:00" data-url="https://www.helloasso.com/associations/la-cave-a-theatre/evenements/cito-longe-tarde-17-10-2026">Sam. 17 oct.<span>20h15</span></button>
+        <button type="button" data-vol="03" data-day="Dimanche" data-date="18" data-time="16h45" data-start="2026-10-18T16:45:00+02:00" data-url="https://www.helloasso.com/associations/la-cave-a-theatre/evenements/cito-longe-tarde-18-10-2026">Dim. 18 oct.<span>16h45</span></button>
+      </div>
+      <footer>
+        <span>La Cave à Théâtre · Le Tapis Rouge, 9 rue de la Liberté, 92700 Colombes</span>
+        <a href="https://www.annibal-lacave.com" target="_blank" rel="noopener">www.annibal-lacave.com</a>
+      </footer>
+    </div>
+  </section>
+</main>
+<div class="sig-toast" id="sig-toast" role="status" hidden><p class="sig-tag" id="sig-tag"></p><p class="sig-txt" id="sig-txt"></p></div>
+
+<div class="launch" id="launch" role="dialog" aria-modal="true" aria-labelledby="launch-flight" hidden>
+  <div class="rocket" id="rocket" aria-hidden="true">
+  <svg viewBox="0 0 60 140">
+    <path d="M12 74 L1 104 L1 116 L13 104 Z" fill="#b3c1f5"/>
+    <path d="M48 74 L59 104 L59 116 L47 104 Z" fill="#b3c1f5"/>
+    <path d="M30 3 C44 19 48 43 48 70 L48 101 L12 101 L12 70 C12 43 16 19 30 3 Z" fill="#eef1ff"/>
+    <path d="M30 3 C36 10 40 18 42.5 27 L17.5 27 C20 18 24 10 30 3 Z" fill="#d9a93c"/>
+    <path d="M40 34 C43 46 44 58 44 70 L44 100 L48 100 L48 70 C48 55 46 42 42 30 Z" fill="#c6cfee"/>
+    <circle cx="30" cy="52" r="9.5" fill="#0a1233" stroke="#d9a93c" stroke-width="3"/>
+    <circle cx="27" cy="49" r="3" fill="#5fd3f0" opacity=".8"/>
+    <rect x="12" y="84" width="36" height="5" fill="#d9a93c"/>
+    <path d="M28 76 L30 94 L32 76 Z" fill="#8f9bc4"/>
+    <path d="M18 101 L42 101 L39 110 L21 110 Z" fill="#5c6690"/>
+  </svg>
+  <div class="flame"></div>
+  <div class="trail"></div>
+  </div>
+  <div class="launch-box">
+    <p class="launch-flight sr-only" id="launch-flight">Vol 01 · Vendredi 16 octobre · 20h15</p>
+    <img class="tk-img" id="tk-img" alt="Carte d’embarquement du vol choisi" width="1000" height="420">
+    <div class="launch-row">
+      <div class="launch-count" id="launch-count" aria-live="assertive">3</div>
+      <p class="launch-msg" id="launch-msg">Séquence de mise à feu engagée</p>
+    </div>
+    <a class="launch-go" id="launch-go" href="#" target="_blank" rel="noopener">Ouvrir la billetterie <span aria-hidden="true">→</span></a>
+    <button class="launch-cancel" id="launch-cancel" type="button">Annuler le décollage</button>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var shows=[
+    {t:Date.parse("2026-10-16T20:15:00+02:00"),label:"Vendredi 16 octobre 2026 · 20h15"},
+    {t:Date.parse("2026-10-17T20:15:00+02:00"),label:"Samedi 17 octobre 2026 · 20h15"},
+    {t:Date.parse("2026-10-18T16:45:00+02:00"),label:"Dimanche 18 octobre 2026 · 16h45"}
+  ];
+  var DUR=135*60*1000;
+  var $=function(id){return document.getElementById(id)};
+  var pad=function(n){return String(n).padStart(2,"0")};
+
+  function markPasses(now){
+    var nextSet=false;
+    document.querySelectorAll("[data-start]").forEach(function(el){
+      var t=Date.parse(el.dataset.start);
+      var past=now>t;
+      el.classList.toggle("is-past",past);
+      el.disabled=past;
+      var flag=el.querySelector(".flag");
+      if(flag) flag.textContent=past?"Parti":"Embarquement";
+      if(el.classList.contains("pass")){
+        var isNext=!past&&!nextSet;
+        el.classList.toggle("is-next",isNext);
+        if(isNext) nextSet=true;
+      }
+    });
+  }
+
+  function tick(){
+    var now=Date.now();
+    var next=null,live=null;
+    for(var i=0;i<shows.length;i++){
+      if(now<shows[i].t){next=shows[i];break;}
+      if(now<shows[i].t+DUR){live=shows[i];}
+    }
+    if(live&&(!next||now<live.t+DUR)){
+      $("hud-title").textContent="Vaisseau en vol";
+      $("hud-status").textContent="En cours";
+      ["cd-d","cd-h","cd-m","cd-s"].forEach(function(id){$(id).textContent="00"});
+    }else if(next){
+      var diff=next.t-now;
+      var s=Math.floor(diff/1000);
+      $("cd-d").textContent=pad(Math.floor(s/86400));
+      $("cd-h").textContent=pad(Math.floor(s%86400/3600));
+      $("cd-m").textContent=pad(Math.floor(s%3600/60));
+      $("cd-s").textContent=pad(s%60);
+      var first=next===shows[0];
+      $("hud-title").textContent=first?"Décollage dans":"Prochain décollage dans";
+      $("hud-status").textContent="Compte à rebours";
+    }else{
+      $("hud-title").textContent="Mission accomplie";
+      $("hud-status").textContent="Atterri";
+      ["cd-d","cd-h","cd-m","cd-s"].forEach(function(id){$(id).textContent="00"});
+    }
+    markPasses(now);
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root=document.documentElement;
+
+  /* ---------- sky ---------- */
+  var cv=document.getElementById("sky"),cx=cv.getContext("2d");
+  var W=0,H=0,DPR=1,stars=[];
+  var SPEED=[0.04,0.12,0.3];
+  function build(){
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    W=innerWidth;H=innerHeight;
+    cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0);
+    var n=Math.min(520,Math.round(W*H/2600));
+    stars=[];
+    for(var i=0;i<n;i++){
+      var l=Math.random()<.6?0:(Math.random()<.7?1:2);
+      stars.push({x:Math.random()*W,y:Math.random()*H,l:l,r:[.6,1,1.6][l]*(.7+Math.random()*.6),
+        a:.25+Math.random()*.6,ph:Math.random()*6.28,sp:.6+Math.random()*1.8,
+        c:Math.random()<.25?"179,193,245":"238,241,255"});
+    }
+  }
+  var px=-999,py=-999;
+  addEventListener("pointermove",function(e){px=e.clientX;py=e.clientY},{passive:true});
+  addEventListener("pointerleave",function(){px=py=-999});
+
+  var sy=scrollY,lastSy=scrollY,vel=0,boost=0,target=0,travel=0,launching=false;
+  var rocket=document.getElementById("rocket");
+
+  function draw(t){
+    cx.clearRect(0,0,W,H);
+    var warp=Math.min(Math.abs(vel)*1.1+boost,90);
+    var dir=boost>Math.abs(vel)?-1:(vel>=0?1:-1);
+    for(var i=0;i<stars.length;i++){
+      var s=stars[i],k=SPEED[s.l];
+      var y=((s.y-sy*k+travel*k)%H+H)%H;
+      var a=s.a*(.65+.35*Math.sin(t*.001*s.sp+s.ph));
+      var r=s.r;
+      var dx=s.x-px,dy=y-py,d2=dx*dx+dy*dy;
+      if(d2<16900){var f=1-Math.sqrt(d2)/130;a=Math.min(1,a+f*.8);r=r*(1+f*1.4);}
+      var len=warp*k*3;
+      cx.fillStyle=cx.strokeStyle="rgba("+s.c+","+a.toFixed(3)+")";
+      if(len>1.5){
+        cx.lineWidth=r;cx.beginPath();cx.moveTo(s.x,y);cx.lineTo(s.x,y+dir*len);cx.stroke();
+      }else{
+        cx.beginPath();cx.arc(s.x,y,r,0,6.2832);cx.fill();
+      }
+    }
+  }
+
+
+  function frame(t){
+    sy=scrollY;
+    vel=vel*.82+(sy-lastSy)*.18;lastSy=sy;
+    if(!launching) target=0;
+    boost+=(target-boost)*(target>boost?.018:.05);
+    travel+=boost*.45;
+    draw(t);
+    requestAnimationFrame(frame);
+  }
+
+  build();
+  addEventListener("resize",build);
+  if(reduce){draw(0);}else{requestAnimationFrame(frame);}
+
+
+  /* ---------- boarding pass image ---------- */
+  var tkImg=document.getElementById("tk-img"),assets={};
+  var srcs={cito:"img/w-cito.png",longe:"img/w-longe.png",tarde:"img/w-tarde.png",badge:"img/badge.png",stars:"img/stars.jpg"};
+  Object.keys(srcs).forEach(function(k){var im=new Image();im.onload=function(){assets[k]=im};im.src=srcs[k];});
+  var DAYS={Vendredi:"VEN.",Samedi:"SAM.",Dimanche:"DIM."};
+  function renderTicket(b){
+    var W=1000,H=420,c=document.createElement("canvas");c.width=W*2;c.height=H*2;
+    var x=c.getContext("2d");x.scale(2,2);
+    var vol=b.dataset.vol||"01",day=(DAYS[b.dataset.day]||"")+" "+(b.dataset.date||"")+" OCT. 2026",time=(b.dataset.time||"").toUpperCase();
+    var R=22,stub=W-270;
+    x.save();x.beginPath();
+    x.moveTo(R,0);x.lineTo(stub-16,0);x.arc(stub,0,16,Math.PI,0,true);x.lineTo(W-R,0);x.quadraticCurveTo(W,0,W,R);
+    x.lineTo(W,H-R);x.quadraticCurveTo(W,H,W-R,H);x.lineTo(stub+16,H);x.arc(stub,H,16,0,Math.PI,true);x.lineTo(R,H);x.quadraticCurveTo(0,H,0,H-R);
+    x.lineTo(0,R);x.quadraticCurveTo(0,0,R,0);x.closePath();x.clip();
+    x.fillStyle="#0b1233";x.fillRect(0,0,W,H);
+    if(assets.stars){var sc=Math.max(W/assets.stars.width,H/assets.stars.height);x.drawImage(assets.stars,(W-assets.stars.width*sc)/2,(H-assets.stars.height*sc)/2-60,assets.stars.width*sc,assets.stars.height*sc);}
+    var g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,"rgba(12,24,70,.72)");g.addColorStop(1,"rgba(6,9,24,.88)");x.fillStyle=g;x.fillRect(0,0,W,H);
+    x.fillStyle="rgba(217,169,60,.12)";x.fillRect(stub,0,W-stub,H);
+    x.restore();
+    x.strokeStyle="rgba(179,193,245,.45)";x.setLineDash([6,7]);x.lineWidth=1.5;x.beginPath();x.moveTo(stub,24);x.lineTo(stub,H-24);x.stroke();x.setLineDash([]);
+    var mono='"Share Tech Mono", ui-monospace, monospace',body='"DM Sans", system-ui, sans-serif';
+    x.fillStyle="#5fd3f0";x.font="15px "+mono;
+    x.fillText("CARTE D’EMBARQUEMENT · MISSION PROXIMA B CENTAURI",40,48);
+    var lx=40,ly=78,lh=34;
+    ["cito","longe","tarde"].forEach(function(k){var im=assets[k];if(!im)return;var w=im.width*lh/im.height;x.drawImage(im,lx,ly,w,lh);lx+=w+18;});
+    function field(lbl,val,fx,fy,size){x.fillStyle="#a6b0d6";x.font="13px "+mono;x.fillText(lbl,fx,fy);x.fillStyle="#eef1ff";x.font="600 "+size+"px "+body;x.fillText(val,fx,fy+size+6);}
+    field("PASSAGER","VOUS",40,160,40);
+    field("VOL",vol,40,258,24);
+    field("DATE",day,130,258,24);
+    field("DÉCOLLAGE",time,440,258,24);
+    field("PORTE D’EMBARQUEMENT","LE TAPIS ROUGE · COLOMBES",40,334,20);
+    field("SIÈGE","ATTRIBUÉ À BORD",440,334,20);
+    if(assets.badge)x.drawImage(assets.badge,stub+75,34,120,120);
+    x.fillStyle="#a6b0d6";x.font="13px "+mono;x.fillText("DESTINATION",stub+30,196);
+    x.fillStyle="#eef1ff";x.font="600 22px "+body;x.fillText("PROXIMA B",stub+30,226);x.fillText("CENTAURI",stub+30,252);
+    x.fillStyle="#a6b0d6";x.font="13px "+mono;x.fillText("N° DE VOL",stub+30,288);
+    x.fillStyle="#d9a93c";x.font="22px "+mono;x.fillText("CLT-"+vol+"-2026",stub+30,314);
+    var seed=+vol*7919+13,bx=stub+30;x.fillStyle="#eef1ff";
+    while(bx<W-30){seed=(seed*9301+49297)%233280;var w=1+Math.floor(seed/233280*4);x.fillRect(bx,340,w,48);bx+=w+1+Math.floor(((seed*7)%233280)/233280*3);}
+    try{tkImg.src=c.toDataURL("image/png")}catch(e){}
+    tkImg.style.animation="none";void tkImg.offsetWidth;tkImg.style.animation="";
+  }
+
+  /* ---------- launch sequence ---------- */
+  var shows={
+    "2026-10-16T20:15:00+02:00":"Vol 01 · Vendredi 16 octobre · 20h15",
+    "2026-10-17T20:15:00+02:00":"Vol 02 · Samedi 17 octobre · 20h15",
+    "2026-10-18T16:45:00+02:00":"Vol 03 · Dimanche 18 octobre · 16h45"
+  };
+  var ov=document.getElementById("launch"),cnt=document.getElementById("launch-count"),
+      msg=document.getElementById("launch-msg"),go=document.getElementById("launch-go"),
+      fl=document.getElementById("launch-flight"),cancelBtn=document.getElementById("launch-cancel");
+  var timers=[],opener=null;
+  function clear(){timers.forEach(clearTimeout);timers=[]}
+  function show(txt,isGo){cnt.textContent=txt;cnt.classList.toggle("go",!!isGo);cnt.classList.remove("pop");void cnt.offsetWidth;cnt.classList.add("pop")}
+  function thrust(v,t){rocket.style.setProperty("--thrust",v);rocket.style.setProperty("--trail",t)}
+  function close(){
+    clear();ov.hidden=true;launching=false;root.classList.remove("launching");
+    ov.classList.remove("armed","shake","fly");go.classList.remove("ready");target=0;
+    if(opener&&opener.focus) opener.focus();
+  }
+  function start(b){
+    opener=b;
+    fl.textContent=shows[b.dataset.start]||"Embarquement";
+    renderTicket(b);
+    go.href=b.dataset.url;
+    msg.textContent="Séquence de mise à feu engagée";
+    ov.classList.remove("armed","shake","fly");go.classList.remove("ready");go.hidden=true;
+    ov.hidden=false;root.classList.add("launching");launching=true;
+    cancelBtn.focus({preventScroll:true});
+    if(reduce){
+      show("Embarquement",true);msg.textContent="Votre place vous attend à bord.";go.hidden=false;go.classList.add("ready");go.focus();return;
+    }
+    thrust(.5,0);show("3");
+    requestAnimationFrame(function(){ov.classList.add("armed")});
+    timers.push(setTimeout(function(){show("2");target=5;thrust(.8,.1)},1000));
+    timers.push(setTimeout(function(){show("1");target=12;thrust(1.2,.3);ov.classList.add("shake")},2000));
+    timers.push(setTimeout(function(){
+      show("Décollage",true);target=55;thrust(2.2,1.4);
+      ov.classList.remove("shake");ov.classList.add("fly");
+      msg.textContent="Votre place vous attend à bord.";
+    },3000));
+    timers.push(setTimeout(function(){go.hidden=false;go.classList.add("ready");go.focus({preventScroll:true})},3600));
+  }
+  go.addEventListener("click",function(){setTimeout(close,300)});
+  cancelBtn.addEventListener("click",close);
+  addEventListener("keydown",function(e){if(e.key==="Escape"&&!ov.hidden)close()});
+  ov.addEventListener("click",function(e){if(e.target===ov)close()});
+
+  document.querySelectorAll(".pass, .mini-dates button").forEach(function(b){
+    b.addEventListener("click",function(){if(!b.disabled)start(b)});
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  /* ---------- 4. terminal typing ---------- */
+  var poem=document.querySelector(".poem");
+  if(poem&&!reduce&&"IntersectionObserver" in window){
+    var nodes=[],walker=document.createTreeWalker(poem,NodeFilter.SHOW_TEXT,null);
+    while(walker.nextNode()){if(walker.currentNode.nodeValue.trim())nodes.push(walker.currentNode)}
+    var parts=[],armed=false,done=false,timer=null;
+    var caret=document.createElement("span");caret.className="caret";caret.setAttribute("aria-hidden","true");
+    function arm(){
+      if(armed)return;armed=true;
+      nodes.forEach(function(n){
+        var typed=document.createElement("span"),rest=document.createElement("span");
+        rest.className="rest";rest.textContent=n.nodeValue;
+        n.parentNode.insertBefore(typed,n);n.parentNode.insertBefore(rest,n);n.parentNode.removeChild(n);
+        parts.push({typed:typed,rest:rest,full:rest.textContent,i:0});
+      });
+    }
+    function finish(){
+      if(done)return;done=true;clearTimeout(timer);
+      parts.forEach(function(p){p.typed.textContent=p.full;p.rest.textContent=""});
+      poem.classList.remove("typing");
+      if(caret.parentNode)caret.parentNode.removeChild(caret);
+    }
+    function run(){
+      poem.classList.add("typing");
+      var k=0;
+      (function step(){
+        if(done)return;
+        var p=parts[k];
+        if(!p){finish();return;}
+        var last=k===parts.length-1,slowFrom=last?Math.max(0,p.full.length-62):Infinity;
+        var slow=p.i>=slowFrom;
+        p.i=Math.min(p.full.length,p.i+1);
+        p.typed.textContent=p.full.slice(0,p.i);p.rest.textContent=p.full.slice(p.i);
+        p.typed.after(caret);
+        if(p.i>=p.full.length){k++;timer=setTimeout(step,/[?.…]\s*$/.test(p.full)?480:120);}
+        else if(slow){
+          var f=(p.i-slowFrom)/(p.full.length-slowFrom);
+          var ch=p.full.charAt(p.i-1);
+          timer=setTimeout(step,55+f*f*210+(ch===","?260:0)+(ch===" "?f*60:0));
+        }
+        else{var c=p.full.charAt(p.i-1);timer=setTimeout(step,26+(c===","?160:0)+(/[?.]/.test(c)?320:0));}
+      })();
+    }
+    poem.addEventListener("click",finish);
+    new IntersectionObserver(function(es,o){if(es[0].isIntersecting){arm();o.disconnect()}},{rootMargin:"0px 0px 400px 0px"}).observe(poem);
+    new IntersectionObserver(function(es,o){if(es[0].isIntersecting){arm();run();o.disconnect()}},{threshold:.35}).observe(poem);
+  }
+
+  /* ---------- 6. constellation ---------- */
+  var map=document.getElementById("skymap");
+  if(map){
+    var svg=map.querySelector("svg"),ul=map.querySelector(".constellation"),stars=[].slice.call(ul.querySelectorAll(".st"));
+    function getEdges(){var src=matchMedia("(max-width:900px)").matches&&ul.dataset.medges?ul.dataset.medges:ul.dataset.edges;return src.split(" ").map(function(e){return e.split("-").map(Number)})}
+    var edges=getEdges();
+    var lines=[];
+    function layout(){
+      var mr=map.getBoundingClientRect();
+      svg.setAttribute("viewBox","0 0 "+mr.width+" "+mr.height);
+      edges=getEdges();
+      svg.innerHTML="";lines=[];
+      var pts=stars.map(function(st){var r=st.getBoundingClientRect();return [r.left+r.width/2-mr.left,r.top+r.height/2-mr.top]});
+      edges.forEach(function(e){
+        var l=document.createElementNS("http://www.w3.org/2000/svg","line");
+        l.setAttribute("x1",pts[e[0]][0]);l.setAttribute("y1",pts[e[0]][1]);l.setAttribute("x2",pts[e[1]][0]);l.setAttribute("y2",pts[e[1]][1]);
+        l.setAttribute("pathLength","1");svg.appendChild(l);lines.push(l);
+      });
+      progress();
+    }
+    function progress(){
+      var r=map.getBoundingClientRect(),vh=innerHeight;
+      var p=reduce?1:Math.min(1,Math.max(0,(vh*.72-r.top)/(r.height*.9+vh*.2)));
+      var n=lines.length;
+      lines.forEach(function(l,i){var q=Math.min(1,Math.max(0,p*n*1.15-i*1.0));l.style.strokeDashoffset=(1-q).toFixed(3)});
+    }
+    layout();
+    addEventListener("resize",function(){clearTimeout(map._t);map._t=setTimeout(layout,150)});
+    addEventListener("scroll",progress,{passive:true});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(layout);
+  }
+
+  /* ---------- 7. hidden signals ---------- */
+  var msgs=[
+    "Le berceau ne répond plus.",
+    "Distance à parcourir : 4,24 années-lumière.",
+    "Ce que l’on fuit voyage toujours avec nous.",
+    "Chaque passager ne verra qu’une part de la vérité.",
+    "Une place vous attend à bord. Ne la laissez pas partir sans vous."
+  ];
+  var found={};(store.get("clt-signals")||"").split(",").forEach(function(k){if(k!=="")found[k]=1});
+  var toast=document.getElementById("sig-toast"),tag=document.getElementById("sig-tag"),txt=document.getElementById("sig-txt");
+  var tt;
+  function nFound(){return Object.keys(found).length}
+  function updateCount(){
+    var n=nFound();
+    document.querySelectorAll(".signal").forEach(function(b){var f=!!found[b.dataset.sig];b.classList.toggle("found",f);b.setAttribute("aria-label",f?"Signal capté : "+msgs[b.dataset.sig]:"Signal inconnu")});
+    if(n===5){var h=document.getElementById("sig-hint");if(h)h.textContent="Transmission complète : les 5 signaux sont captés.";}
+  }
+  function showToast(t1,t2,withCta){
+    tag.textContent=t1;txt.textContent=t2;toast.hidden=false;
+    clearTimeout(tt);tt=setTimeout(function(){toast.hidden=true},withCta?9000:5000);
+  }
+  document.querySelectorAll(".signal").forEach(function(b){
+    b.addEventListener("click",function(){
+      var k=b.dataset.sig,isNew=!found[k];found[k]=1;
+      store.set("clt-signals",Object.keys(found).join(","));updateCount();
+      var n=nFound();
+      if(n===5&&isNew) showToast("Transmission complète · 5/5","Félicitations ! Vous avez intercepté tous les signaux du vaisseau. Rendez-vous à bord.",true);
+      else showToast("Transmission interceptée · "+n+"/5","« "+msgs[k]+" »",false);
+    });
+  });
+  toast.addEventListener("click",function(){toast.hidden=true});
+  updateCount();
+
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce)return;
+  var passes=[].slice.call(document.querySelectorAll(".passes .pass"));
+  if(!passes.length)return;
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var vh=innerHeight,span=vh*.45,n=passes.length;
+    var r0=passes[0].getBoundingClientRect(),r1=passes[1]?passes[1].getBoundingClientRect():r0;
+    var row=n>1&&Math.abs(r0.top-r1.top)<2;
+    passes.forEach(function(p,i){
+      var r=p.getBoundingClientRect();
+      var raw=row?(vh-r.top)/(vh*.55):(vh-r.top)/span-i*.12;
+      var k=Math.min(1,Math.max(0,raw));
+      var x=row?-(1-k)*(innerWidth*.7+(n-1-i)*r.width*.9):-(1-k)*innerWidth*.7;
+      p.style.translate=x.toFixed(1)+"px 0";
+      p.style.opacity=(0.15+0.85*k).toFixed(3);
+    });
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  addEventListener("scroll",req,{passive:true});
+  addEventListener("resize",req);
+  update();
+})();
+</script>
+</body>
+</html>
